@@ -1,0 +1,21 @@
+.login-page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-header {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container input {
+  width: 186px;
+  height: 26px;
+  background-color: #e0dfdf;
+  margin: 12px 0;
+}

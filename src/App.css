@@ -1,10 +1,28 @@
-.App {
+show.App {
   text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.text {
+  color: "red";
+  font-size: 18px;
+}
+
+.button-container {
+  background-color: #28c3e5;
+  width: 182px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-text {
+  color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
