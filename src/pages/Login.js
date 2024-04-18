@@ -1,10 +1,28 @@
 import React, { useState } from "react";
 import "./Login.css";
 import ButtonComponent from "../components/Button";
+import axios from "axios";
 
 const LoginPage = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios({
+        url: "http://localhost:8080/login",
+        method: "POST",
+        data: {
+          emailAddress: userId,
+          password: password,
+        },
+      });
+      console.log("response", response);
+      return response;
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
   return (
     <div className="login-page-container">
@@ -28,7 +46,7 @@ const LoginPage = () => {
         />
       </div>
       <div>
-        <ButtonComponent buttonText="Login" />
+        <ButtonComponent buttonText="Login" onClick={handleSubmit} />
       </div>
     </div>
   );
