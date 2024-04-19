@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import "./Login.css";
 import ButtonComponent from "../components/Button";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const [messageText, setMessageText] = useState("");
 
   const handleSubmit = async () => {
     try {
@@ -18,6 +21,8 @@ const LoginPage = () => {
         },
       });
       console.log("response", response);
+      setMessageText(response.data.message);
+      navigate("/home");
       return response;
     } catch (err) {
       console.log("err", err);
@@ -48,6 +53,7 @@ const LoginPage = () => {
       <div>
         <ButtonComponent buttonText="Login" onClick={handleSubmit} />
       </div>
+      {messageText && <span>{messageText}</span>}
     </div>
   );
 };
